@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  	<meta charset="utf-8">
+  	<title>Giphy Portfolio</title>
+    
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+	<!-- Jumbotron for Title and instructions -->
+<!-- 	<div class="jumbotron">
+	    <h2 class="text-center"><strong>State Captial Trivia Game</strong></h2>
+	    <br>
+	    <h4 class="text-center">A city and state will be dislayed.  If the city is the capital of the state answer True, otherwise answer False.</h4>
+	    <h4 class="text-center">You will have 10 seconds to answer a question. If no answer is entered within 10 seconds the answer will be counted as an incorrect answer.  The game will end after 60 seconds.</h4>
+	</div> -->
+
+    <br>
+
+<!-- <p>Click the button to list all the items in the array.</p>
+<button onclick="numbers.forEach(myFunction)">Try it</button> -->
+<p id="demo"></p>
+
+	<div class="container">
+	    <div id="row1" class="row">
+	        <div class="col-md-9">
+	            <div class="panel panel-default">
+	                <div class="panel-heading">
+	                    <h2 class="panel-title"><strong>Animal Topics</strong></h2>
+	                </div>
+	                <div class="panel-body">
+	                    <h4 id="animal-topics"></h4>
+	                </div>
+	            </div>
+	        </div>  
+
+			<div class="col-md-3">
+				<div class="panel panel-default">
+		        	<div class="panel-heading">
+		            	<h2 class="panel-title"><strong>Add an Animal Topic</strong></h2>
+		            </div>
+		            <div class="panel-body">
+		            	<form role="form">
+        		      		<div class="form-group">
+                				<label for="search">Add Animal</label>
+                				<input type="text" class="form-control" id="added-animal">
+              				</div>
+              				<button type="submit" class="btn btn-default" id="run-search"><i></i>Submit</button>
+            			</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	    <div id="row2" class="row">
+	        <div class="col-md-12">
+	            <div class="panel panel-default">
+	                <div class="panel-heading">
+	                    <h2 class="panel-title"><strong>Animal Images</strong></h2>
+	                </div>
+	                <div class="panel-body">
+	                    <h4 id="animal-images"></h4>
+	                </div>
+	            </div>
+<div id="images">
+  </div>
+
+	        </div>  
+	    </div>
+	</div>
+
+
+	<!-- Added link to the giphy.js -->
+	<script type="text/javascript" src="assets\javascript\giphy.js"></script>
+</body>
+
+</html>
 

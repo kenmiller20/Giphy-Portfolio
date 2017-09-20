@@ -1,7 +1,7 @@
 var giphyPortfolio = {
 
 	// Existing animal topics
-	topic: ['Pointer Dog', 'Puppy', 'Cat', 'Ragdoll Cat', 'Kitten', 'Hamster', 'Gerbil', 'Goldfish', 'Ferret'],
+	topic: ['Puppy', 'Cat', 'Cow', 'Kitten', 'Hamster', 'Gerbil', 'Goldfish', 'Ferret', 'Fox', 'Coyote'],
 
 	// Create one button for each topic in array
 	initButtons: function() {
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
 	
  	// On image click, animate image or make image still
-   	$(document).on("click", ".image-animal", function() { 	
+   	$(document).on("click", ".img-animal", function() { 	
 
       	// Get image animation state
       	var state = $(this).attr("data-state");
@@ -92,31 +92,36 @@ $(document).ready(function() {
 
 		      	// Saving the still and animated image URL's
 		        var animiatedImageUrl = results[idx].images.fixed_height.url;
-		        var stillImageUrl = results[idx].images.fixed_height_still.url;
+		        var stillImageUrl =  results[idx].images.fixed_height_still.url; 
 
 		        // Create next image
 		    	var animalImage = $("<img>");
-		        animalImage.attr("src", stillImageUrl);
-		        animalImage.attr("alt", this.value+" image");
-		        animalImage.attr("data-state", "still");
-		        animalImage.attr("data-animate", animiatedImageUrl);
-		        animalImage.attr("data-still", stillImageUrl);
-		        animalImage.attr("class", "image-animal");;
+		        animalImage.attr({src: stillImageUrl,
+		        	alt: this.value+"image",
+		        	"data-state": "still",
+		        	"data-animate": animiatedImageUrl,
+		        	"data-still": stillImageUrl,
+		        	"class":  "img-responsive img-animal"});
 
-		    	// Create item's rating
-		        var ratingCaption = $("<h4>");
-		        ratingCaption.text("Rating: " + results[idx].rating);
-				ratingCaption.attr("class", "caption text-center");
+				// Make each image height fixed 
+				$('.img-animal').css({'width' : '90%', 'height' : '200px' });
+
+				//  Outer container for each image; allows a max of 3 images per line
+        		$("#animal-images").append($('<div class="col-md-4" id="container' + idx + '"></div>')) ;
+
+        		// Container for image and rating
+				$('#container' + idx).append($('<div class="col-md-12 thumbnail text-center" id="img-container' + idx + '"></div>'));
 
 				// Append image
-		       	$("#animal-images").append(animalImage);	
+        		$('#img-container' + idx).append(animalImage);
 
-				// Append rating - Not Working
-				$(".image-animal").text("Rating: "+results[idx].rating);	
+        		// Append rating
+ 				$('#img-container' + idx).append($("<h4>Rating: " + results[idx].rating +"</h4>"));  
 	     	}
 	    }, 
 
-	    error: function(e) {console.log("uh oh"); }
+	    // API call error condtion
+	    error: function(e) {console.log("Error retrieving Giphy images"); }
 	    });
 	});	
 });
